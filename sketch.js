@@ -42,11 +42,11 @@ var gTextOffset = 20;
 
 // load all images into an array
 function preload() {
-  images[0] = loadImage('assets/anxious.png');
-  images[1] = loadImage('assets/blank.png');
-  images[2] = loadImage('assets/excited.png');
-  images[3] = loadImage('assets/frustrated.png');
-  images[4] = loadImage('assets/worried.png');
+  images[0] = loadImage('assets/Anxious.png');
+  images[1] = loadImage('assets/Blank.png');
+  images[2] = loadImage('assets/Excited.png');
+  images[3] = loadImage('assets/Frustrated.png');
+  images[4] = loadImage('assets/Worried.png');
 }
 
 // Center drawing, drawFunction will be one for default
@@ -59,12 +59,12 @@ function setup() {
   textSize(24);
 
   // set to one for startup
-  drawFunction = drawOne;
+  drawFunction = drawOpening;
 }
 
 // Very simple, sets the background color and calls your state machine function
 function draw() {
-  background(192);
+  background(255);
 
   // will call your state machine function
   drawFunction();
@@ -72,44 +72,76 @@ function draw() {
 
 //========= TEMPLATE: modify these functions, INSIDE the function blocks only =========
 
+drawOpening = function() {
+	textSize(30);
+	fill(38,40,190);
+	text("Welcome to my moood states", width/2, 60);
+	text("Please press any number from 1-5 to start", width/2, 120);
+
+//Drawing flower variables
+	var petalSize = 70;
+	var flowerX =width / 2;
+	var flowerY = height / 2; 
+
+//Stem
+	fill(0, 100, 0);
+	rect(flowerX-5, flowerY, 10, 200);
+
+//Petals 
+	fill(255, 192, 203);
+	ellipse(flowerX - petalSize / 2, flowerY - petalSize / 2, petalSize);
+	ellipse(flowerX + petalSize / 2, flowerY - petalSize / 2, petalSize);
+  	ellipse(flowerX - petalSize / 2, flowerY + petalSize / 2, petalSize);
+  	ellipse(flowerX + petalSize / 2, flowerY + petalSize / 2, petalSize);
+//Center of flower
+	fill (204, 57, 123);
+	ellipse(flowerX, flowerY, petalSize);
+
+}
+
 //-- drawOne() will draw the image at index 0 from the array
 drawOne = function() {
    image(images[0],width/2, height/2);
 
-   fill(0,0,0);
-   text("State Anxious", width/2, height - gTextOffset);
+   fill(65,105,225);
+   text("#1: State Anxious", width/2, height - gTextOffset - 50);
+   text("Press any number from 1-5",width/2 , height - gTextOffset);
 }
 
 //-- drawTwo() will draw the image at index 1 from the array
 drawTwo = function() {
    image(images[1],width/2, height/2);
 
-   fill(240,120,0);
-   text("State Blank", width/2, height - gTextOffset);
+   fill(76,81,109);
+   text("#2:State Blank", width/2, height - gTextOffset - 50);
+   text("Press any number from 1-5",width/2 , height - gTextOffset);
 }
 
 //-- drawOne() will draw the image at index 2 from the array
 drawThree = function() {
    image(images[2],width/2, height/2);
 
-   fill(40,230,120);
-   text("State Excited", width/2, height - gTextOffset);
+   fill(4255,173,47);
+   text("#3:State Excited", width/2, height - gTextOffset - 50);
+   text("Press any number from 1-5",width/2 , height - gTextOffset);
 }
 
 //-- drawOne() will draw the image at index 3 from the array
 drawFour = function() {
    image(images[3],width/2, height/2);
 
-   fill(255,255,178);
-   text("State Frustrated", width/2, height - gTextOffset);
+   fill(255,0,0);
+   text("#4:State Frustrated", width/2, height - gTextOffset - 50);
+   text("Press any number from 1-5",width/2 , height - gTextOffset);
 }
 
 //-- drawOne() will draw the image at index 4 from the array
 drawFive = function() {
    image(images[4],width/2, height/2);
 
-   fill(230,50,50);
-   text("State Worried", width/2, height - gTextOffset);
+   fill(51,171,249);
+   text("#5:State Worried", width/2, height - gTextOffset -50);
+   text("Press any number from 1-5",width/2 , height - gTextOffset);
 }
 
 
