@@ -1,13 +1,9 @@
 /***********************************************************************************
-	SimpleStateMachine - TEMPLATE
-	by Scott Kildall
+	SimpleStateMachine - applied
+	by Ashley Lee
 
-	Template:
-
-	(1) Add your own PNG files in the assets folder. Make sure they match the names ***exactly*** of the existing PNGs.
-	(2) Add custom drawing code to drawOne(), drawTwo(), drawThree(), drawFour(), drawFive()
-	(3) You can add your own interfaces - keys, mouse events, etc in the Interfaces section
-
+	Applied simple state machine template with 5 mood pngs. 
+	
 	Also start your localhost before running this, otherwise no PNGs will display
 
 ------------------------------------------------------------------------------------

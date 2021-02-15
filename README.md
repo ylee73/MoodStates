@@ -1,9 +1,9 @@
 ## Simple State Machine
-#### by Scott Kildall
+#### by Ashley Lee
 
 
 ### Overview
-This is a template for a simple state machine that goes between five states
+This is an application of the Simple State Machine template using five mood pngs. 
 
 
 ### Modifying the Template
