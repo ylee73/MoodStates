@@ -9,7 +9,7 @@
 	Additions: 
 	Creat a new state called drawSplash with an intro screen
 	Upong startup, go to that state 
-	When mouse clicked go to drawOpening.
+	When mouse clicked go to drawInstructions.
 
 ------------------------------------------------------------------------------------
 	The way it works — you don't need to know this for the template use
@@ -89,8 +89,8 @@ drawSplash = function() {
    fill(0);
    text("Click your mouse to START", midX, 50);
 }
-// Opening with instructions and flower drawing
-drawOpening = function() {
+// Instructions with instructions and flower drawing
+drawInstructions = function() {
 	textSize(30);
 	fill(38,40,190);
 	loadArray();
@@ -119,7 +119,7 @@ drawOpening = function() {
 	ellipse(flowerX, flowerY, petalSize);
 
 }
-// Strin Array for opening screen
+// Strin Array for Instructions screen
 function loadArray() {
 	strings[0] = "Welcome to my moood states";
 	strings[1] = "";
@@ -203,6 +203,6 @@ function keyTyped() {
 
 function mousePressed () {
   if (drawFunction === drawSplash ) {
-    drawFunction = drawOpening;
+    drawFunction = drawInstructions;
   }
 }
