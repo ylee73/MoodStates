@@ -6,6 +6,11 @@
 	
 	Also start your localhost before running this, otherwise no PNGs will display
 
+	Additions: 
+	Creat a new state called drawSplash with an intro screen
+	Upong startup, go to that state 
+	When mouse clicked go to drawOne.
+
 ------------------------------------------------------------------------------------
 	The way it works — you don't need to know this for the template use
 	* array of images gets loaded at startup
@@ -30,6 +35,13 @@
 // Array of images
 var images = [];
 
+// global varaible for the string array
+var strings = [];
+var midX;
+var startY;
+var lineHeight = 30;
+
+
 // variable that is a function 
 var drawFunction;
 
@@ -43,19 +55,23 @@ function preload() {
   images[2] = loadImage('assets/Excited.png');
   images[3] = loadImage('assets/Frustrated.png');
   images[4] = loadImage('assets/Worried.png');
+  images[5] = loadImage('assets/Splash.png')
 }
 
 // Center drawing, drawFunction will be one for default
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
+  midX = width/2;
+  startY = 60;
+
   // Center our drawing objects
   imageMode(CENTER);
   textAlign(CENTER);
   textSize(24);
-
+ 
   // set to one for startup
-  drawFunction = drawOpening;
+  drawFunction = drawSplash
 }
 
 // Very simple, sets the background color and calls your state machine function
@@ -67,17 +83,20 @@ function draw() {
 }
 
 //========= TEMPLATE: modify these functions, INSIDE the function blocks only =========
-
+// Opening with instructions and flower drawing
 drawOpening = function() {
 	textSize(30);
 	fill(38,40,190);
-	text("Welcome to my moood states", width/2, 60);
-	text("Please press any number from 1-5 to start", width/2, 120);
+	loadArray();
+
+	for ( let i = 0; i < strings.length; i++ ) {
+		text( strings[i], midX, startY + (i * lineHeight) )
+	}
 
 //Drawing flower variables
 	var petalSize = 70;
 	var flowerX =width / 2;
-	var flowerY = height / 2; 
+	var flowerY = height / 2 + 100; 
 
 //Stem
 	fill(0, 100, 0);
@@ -94,14 +113,30 @@ drawOpening = function() {
 	ellipse(flowerX, flowerY, petalSize);
 
 }
-
+// Strin Array for opening screen
+function loadArray() {
+	strings[0] = "Welcome to my moood states";
+	strings[1] = "";
+	strings[2] = "Please press any number from 1-5 to start";
+	strings[3] = "#1: Anxious";
+	strings[4] = "#2: Blank";
+	strings[5] = "#3: Excited";
+	strings[6] = "#4: Frustrated";
+	strings[7] = "#5: Worried";
+}
+//Display splash image
+drawSplash = function() {
+   image(images[5],width/2, height/2);
+   fill(0);
+   text("Click your mouse to START", midX, 50);
+}
 //-- drawOne() will draw the image at index 0 from the array
 drawOne = function() {
    image(images[0],width/2, height/2);
 
    fill(65,105,225);
    text("#1: State Anxious", width/2, height - gTextOffset - 50);
-   text("Press any number from 1-5",width/2 , height - gTextOffset);
+   text("Press any number from 1-5 or s to restart",width/2 , height - gTextOffset);
 }
 
 //-- drawTwo() will draw the image at index 1 from the array
@@ -110,7 +145,7 @@ drawTwo = function() {
 
    fill(76,81,109);
    text("#2:State Blank", width/2, height - gTextOffset - 50);
-   text("Press any number from 1-5",width/2 , height - gTextOffset);
+   text("Press any number from 1-5 or s to restart",width/2 , height - gTextOffset);
 }
 
 //-- drawOne() will draw the image at index 2 from the array
@@ -119,7 +154,7 @@ drawThree = function() {
 
    fill(4255,173,47);
    text("#3:State Excited", width/2, height - gTextOffset - 50);
-   text("Press any number from 1-5",width/2 , height - gTextOffset);
+   text("Press any number from 1-5 or s to restart",width/2 , height - gTextOffset);
 }
 
 //-- drawOne() will draw the image at index 3 from the array
@@ -128,16 +163,16 @@ drawFour = function() {
 
    fill(255,0,0);
    text("#4:State Frustrated", width/2, height - gTextOffset - 50);
-   text("Press any number from 1-5",width/2 , height - gTextOffset);
+   text("Press any number from 1-5 or s to restart",width/2 , height - gTextOffset);
 }
 
 //-- drawOne() will draw the image at index 4 from the array
 drawFive = function() {
    image(images[4],width/2, height/2);
 
-   fill(51,171,249);
+   fill(0,0,139);
    text("#5:State Worried", width/2, height - gTextOffset -50);
-   text("Press any number from 1-5",width/2 , height - gTextOffset);
+   text("Press any number from 1-5 or s to restart",width/2 , height - gTextOffset);
 }
 
 
@@ -159,5 +194,14 @@ function keyTyped() {
   }
   else if( key === '5' ) {
   	drawFunction = drawFive;
+  }
+  else if (key ==='s' ) {
+    drawFunction = drawSplash;
+  }
+}
+
+function mousePressed () {
+  if (drawFunction === drawSplash ) {
+    drawFunction = drawOpening;
   }
 }
