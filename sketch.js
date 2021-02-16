@@ -83,6 +83,12 @@ function draw() {
 }
 
 //========= TEMPLATE: modify these functions, INSIDE the function blocks only =========
+//Display splash image
+drawSplash = function() {
+   image(images[5],width/2, height/2);
+   fill(0);
+   text("Click your mouse to START", midX, 50);
+}
 // Opening with instructions and flower drawing
 drawOpening = function() {
 	textSize(30);
@@ -124,12 +130,7 @@ function loadArray() {
 	strings[6] = "#4: Frustrated";
 	strings[7] = "#5: Worried";
 }
-//Display splash image
-drawSplash = function() {
-   image(images[5],width/2, height/2);
-   fill(0);
-   text("Click your mouse to START", midX, 50);
-}
+
 //-- drawOne() will draw the image at index 0 from the array
 drawOne = function() {
    image(images[0],width/2, height/2);
