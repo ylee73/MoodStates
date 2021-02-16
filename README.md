@@ -1,9 +1,9 @@
-## Simple State Machine
+## Simple State Machine with Splash + Opening
 #### by Ashley Lee
 
 
 ### Overview
-This is an application of the Simple State Machine template using five mood pngs. 
+This is an application of the Simple State Machine template using five mood pngs with an opening and splash state.
 
 
 ### Modifying the Template

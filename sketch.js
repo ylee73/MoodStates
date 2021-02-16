@@ -9,7 +9,7 @@
 	Additions: 
 	Creat a new state called drawSplash with an intro screen
 	Upong startup, go to that state 
-	When mouse clicked go to drawOne.
+	When mouse clicked go to drawOpening.
 
 ------------------------------------------------------------------------------------
 	The way it works — you don't need to know this for the template use
